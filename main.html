@@ -10,8 +10,32 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			
+			if (arr.length < 2) {
+        return -Infinity;
+    }
+    
+    // Convert array elements to numbers (in case they're strings from prompt)
+    arr = arr.map(Number);
+    
+    // Find the highest element
+    let highest = -Infinity;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > highest) {
+            highest = arr[i];
+        }
+    }
+    
+    // Find the second highest element
+    let second = -Infinity;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > second && arr[i] < highest) {
+            second = arr[i];
+        }
+    }
+    
+    return second;
 		}
+		
 
 		function Main() {
 			var n = prompt("Enter the number of elements");
